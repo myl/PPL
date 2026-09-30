@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>Phonetics & Phonology Lab</title>
+		<link
+			rel="stylesheet"
+			href="/css/variables.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="/css/navbar.css"
+		/>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				line-height: 1.6;
+				margin: 0;
+				padding: 20px;
+				background-color: #f4f4f4;
+				color: var(--text-color);
+			}
+			.container {
+				max-width: 800px;
+				margin: auto;
+				background: white;
+				padding: 20px;
+				border-radius: var(--border-radius);
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			}
+
+			.center-block {
+				display: block; /* Changes the image from inline to block */
+				margin: 0 auto; /* Sets top/bottom margin to 0, left/right to auto */
+				max-width: 100%; /* Prevents the image from breaking mobile screens */
+				height: auto; /* Keeps the aspect ratio intact */
+			}
+
+			h1 {
+				color: var(--link-color);
+			}
+
+			p {
+				font-size: 16px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="navbar-container">
+				<div class="mobile-header">
+					Phonetics & Phonology Lab
+					<div class="spacer"></div>
+					<button
+						class="navbar-toggler"
+						onclick="
+							document
+								.querySelector('.navbar-item-container')
+								.classList.toggle('show')
+						"
+					>
+						☰
+					</button>
+				</div>
+				<div class="navbar-item-container">
+					<a
+						class="navbar-link"
+						href="/"
+					>
+						Home
+					</a>
+					<div class="hover-link">
+						<a
+							class="navbar-link"
+							href="/people"
+						>
+							Dropdown
+						</a>
+						<div class="children">
+							<a
+								href="/x"
+								class="navbar-link"
+							>
+								Child 1
+							</a>
+							<a
+								href="/y"
+								class="navbar-link"
+							>
+								Child 2
+							</a>
+							<a
+								href="/z"
+								class="navbar-link"
+							>
+								Child 3
+							</a>
+						</div>
+					</div>
+
+					<a
+						class="navbar-link"
+						href="/"
+					>
+						Item text
+					</a>
+					<a
+						class="navbar-link"
+						href="/"
+					>
+						Item text
+					</a>
+					<a
+						class="navbar-link"
+						href="/"
+					>
+						Item text
+					</a>
+					<a
+						class="navbar-link"
+						href="/"
+					>
+						Item text
+					</a>
+				</div>
+			</div>
+			<img
+				src="/static/PPL1.png"
+				alt="Description"
+				class="center-block"
+			/>
+			<h1>Penn Phonetics & Phonology Laboratory</h1>
+			<p>Department of Linguistics</p>
+			<p>And so on.</p>
+		</div>
+	</body>
+</html>

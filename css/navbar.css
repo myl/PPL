@@ -1,0 +1,91 @@
+.navbar-container {
+	display: flex;
+	flex-flow: column nowrap;
+	gap: 0.5rem;
+}
+
+.navbar-item-container {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: start;
+	gap: 2rem;
+}
+
+.navbar-link {
+	color: var(--text-color);
+	text-decoration: none;
+	/* using all breaks the dropdown animation for some reason */
+	transition:
+		color,
+		scale 0.25s ease;
+}
+
+.navbar-link:hover,
+.navbar-link:focus {
+	color: var(--link-color);
+	scale: 90%;
+}
+
+.hover-link .children {
+	visibility: hidden;
+	display: flex;
+	flex-flow: column nowrap;
+	position: fixed;
+	background-color: white;
+	padding: 0.75rem;
+	border-radius: var(--border-radius);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.hover-link:hover .children,
+.hover-link :focus .children {
+	visibility: visible;
+}
+
+.mobile-header {
+	display: none;
+	flex-flow: row nowrap;
+	font-weight: bold;
+}
+
+.spacer {
+	flex-grow: 1;
+}
+
+.navbar-toggler {
+	border: none;
+	background-color: #ddd;
+	font-size: 20px;
+	border-radius: var(--border-radius);
+	cursor: pointer;
+	transition: all 0.25s ease;
+}
+
+.navbar-toggler:hover {
+	background-color: #eee;
+}
+
+.navbar-toggler:active {
+	background-color: #fff;
+}
+
+@media screen and (max-width: 600px) {
+	.navbar-item-container {
+		display: none;
+		flex-flow: column nowrap;
+		gap: 0.25rem;
+		font-size: 14px;
+	}
+	.mobile-header,
+	.navbar-item-container.show {
+		display: flex;
+	}
+	.hover-link .children {
+		position: static;
+		visibility: visible;
+		padding: 0;
+		box-shadow: none;
+		margin-left: 1rem;
+	}
+}
