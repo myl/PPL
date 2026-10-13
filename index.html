@@ -1,59 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>Penn Phonetics & Phonology Lab</title>
 		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0"
+			name="description"
+			content="The phonetics group at Penn emphasizes the interdisciplinary and experimental nature of phonetics in both teaching and research. The group is engaged in a wide range of research topics, including laboratory studies of speech production and perception, prosody modelling, phonetic patterns and variation in large speech corpora, integration of phonetics and speech technology, etc."
 		/>
-		<title>Phonetics & Phonology Lab</title>
-		<link
-			rel="stylesheet"
-			href="/css/variables.css"
-		/>
-		<link
-			rel="stylesheet"
-			href="/css/navbar.css"
-		/>
+		<meta name="theme-color" content="#011F5B" />
+		<link rel="icon" href="/static/favicon.png" />
+
+		<link rel="stylesheet" href="/css/main.css" />
+		<link rel="stylesheet" href="/css/navbar.css" />
 		<style>
-			body {
-				font-family: Arial, sans-serif;
-				line-height: 1.6;
-				margin: 0;
-				padding: 20px;
-				background-color: #f4f4f4;
-				color: var(--text-color);
+			.hero-container {
+				display: flex;
+				flex-flow: row nowrap;
+				align-items: center;
+				justify-content: center;
 			}
-			.container {
-				max-width: 800px;
-				margin: auto;
-				background: white;
-				padding: 20px;
-				border-radius: var(--border-radius);
-				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			.hero-title {
+				font-size: 3rem;
+				line-height: 1.2;
+				font-weight: 600;
+				color: black;
 			}
-
-			.center-block {
-				display: block; /* Changes the image from inline to block */
-				margin: 0 auto; /* Sets top/bottom margin to 0, left/right to auto */
-				max-width: 100%; /* Prevents the image from breaking mobile screens */
-				height: auto; /* Keeps the aspect ratio intact */
+			.hero-highlight {
+				color: var(--color-red);
 			}
-
-			h1 {
-				color: var(--link-color);
+			.hero-image {
+				max-width: 512px;
 			}
-
-			p {
-				font-size: 16px;
+			@media screen and (max-width: 960px) {
+				.hero-container {
+					flex-flow: column nowrap;
+					text-align: center;
+				}
+				.hero-title {
+					font-size: 2rem;
+				}
+				.hero-image {
+					max-width: 256px;
+				}
 			}
 		</style>
 	</head>
 	<body>
-		<div class="container">
-			<div class="navbar-container">
-				<div class="mobile-header">
-					Phonetics & Phonology Lab
+		<header class="navbar-sticky">
+			<nav class="navbar-container">
+				<div class="navbar-header-container">
+					<a href="/">
+						<img src="/static/favicon.png" width="24" height="24" loading="lazy" />
+						<span class="navbar-header">Penn Phonetics Laboratory</span>
+					</a>
 					<div class="spacer"></div>
 					<button
 						class="navbar-toggler"
@@ -66,76 +67,46 @@
 						☰
 					</button>
 				</div>
+				<div class="spacer"></div>
 				<div class="navbar-item-container">
-					<a
-						class="navbar-link"
-						href="/"
-					>
-						Home
-					</a>
-					<div class="hover-link">
-						<a
-							class="navbar-link"
-							href="/people"
-						>
-							Dropdown
-						</a>
+					<a class="navbar-link" href="/">Home</a>
+					<!-- setup required for pure css dropdowns, feel free to copy this around -->
+					<span class="hover-link">
+						<a class="navbar-link" href="/people">People</a>
 						<div class="children">
-							<a
-								href="/x"
-								class="navbar-link"
-							>
-								Child 1
-							</a>
-							<a
-								href="/y"
-								class="navbar-link"
-							>
-								Child 2
-							</a>
-							<a
-								href="/z"
-								class="navbar-link"
-							>
-								Child 3
-							</a>
+							<a href="/x" class="navbar-link">Child 1</a>
+							<a href="/y" class="navbar-link">Child 2</a>
+							<a href="/z" class="navbar-link">Child 3</a>
 						</div>
-					</div>
-
-					<a
-						class="navbar-link"
-						href="/"
-					>
-						Item text
-					</a>
-					<a
-						class="navbar-link"
-						href="/"
-					>
-						Item text
-					</a>
-					<a
-						class="navbar-link"
-						href="/"
-					>
-						Item text
-					</a>
-					<a
-						class="navbar-link"
-						href="/"
-					>
-						Item text
-					</a>
+					</span>
+					<a class="navbar-link" href="/alumni">Alumni</a>
+					<a class="navbar-link" href="/research">Research</a>
+					<a class="navbar-link" href="/facilities">Facilities</a>
+					<a class="navbar-link" href="/policy">Policy</a>
+					<a class="navbar-link" href="/news">News</a>
+				</div>
+			</nav>
+		</header>
+		<main class="container">
+			<div class="hero-container">
+				<img src="/static/hero.png" alt="Hero image" class="hero-image" />
+				<div>
+					<h1 class="hero-title">
+						Welcome to the
+						<span class="hero-highlight">Phonetics & Phonology Laboratory!</span>
+					</h1>
+					<h2>University of Pennsylvania Department of Linguistics</h2>
 				</div>
 			</div>
-			<img
-				src="/static/PPL1.png"
-				alt="Description"
-				class="center-block"
-			/>
-			<h1>Penn Phonetics & Phonology Laboratory</h1>
-			<p>Department of Linguistics</p>
-			<p>And so on.</p>
-		</div>
+			<hr />
+			<h1>About Us</h1>
+			<p>
+				The phonetics group at Penn emphasizes the interdisciplinary and experimental nature
+				of phonetics in both teaching and research. The group is engaged in a wide range of
+				research topics, including but not limited to laboratory studies of speech
+				production and perception, prosody modelling, phonetic patterns and variation in
+				large speech corpora, and integration of phonetics and speech technology.
+			</p>
+		</main>
 	</body>
 </html>

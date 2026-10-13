@@ -1,20 +1,56 @@
+@import "./variables.css";
+
+:root {
+	/* match main container max width */
+	--navbar-max-width: 1140px;
+	--navbar-item-spacing: 0.2rem;
+}
+
+/* just for the main sticky container */
+.navbar-sticky {
+	position: sticky;
+	top: 0;
+	background: white;
+	box-shadow: var(--sheet-shadow);
+	width: 100%;
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: center;
+}
+
+/* items, padding, max width, etc */
 .navbar-container {
 	display: flex;
-	flex-flow: column nowrap;
+	flex-flow: row nowrap;
+	align-items: center;
+	padding: 1rem;
+	width: var(--navbar-max-width);
+	gap: 2rem;
+}
+
+/* site information */
+.navbar-header-container {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
 	gap: 0.5rem;
 }
 
+.navbar-header {
+	font-size: 24px;
+	font-weight: 600;
+}
+
+/* individual navigation items */
 .navbar-item-container {
 	display: flex;
 	flex-flow: row nowrap;
-	justify-content: center;
 	align-items: start;
 	gap: 2rem;
 }
 
 .navbar-link {
-	color: var(--text-color);
-	text-decoration: none;
 	/* using all breaks the dropdown animation for some reason */
 	transition:
 		color,
@@ -23,10 +59,11 @@
 
 .navbar-link:hover,
 .navbar-link:focus {
-	color: var(--link-color);
+	color: var(--color-red);
 	scale: 90%;
 }
 
+/* set dropdown children hidden by default and show on parent hover/focus */
 .hover-link .children {
 	visibility: hidden;
 	display: flex;
@@ -34,8 +71,9 @@
 	position: fixed;
 	background-color: white;
 	padding: 0.75rem;
+	gap: var(--navbar-item-spacing);
 	border-radius: var(--border-radius);
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	box-shadow: var(--sheet-shadow);
 }
 
 .hover-link:hover .children,
@@ -43,49 +81,46 @@
 	visibility: visible;
 }
 
-.mobile-header {
-	display: none;
-	flex-flow: row nowrap;
-	font-weight: bold;
-}
-
-.spacer {
-	flex-grow: 1;
-}
-
+/* only show for mobile, hidden for now */
 .navbar-toggler {
-	border: none;
-	background-color: #ddd;
-	font-size: 20px;
-	border-radius: var(--border-radius);
-	cursor: pointer;
-	transition: all 0.25s ease;
+	display: none;
+	font-size: 1.25rem;
 }
 
-.navbar-toggler:hover {
-	background-color: #eee;
-}
-
-.navbar-toggler:active {
-	background-color: #fff;
-}
-
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 960px) {
+	/* flip container to show header on top and hide items below */
+	.navbar-container {
+		flex-flow: column nowrap;
+		align-items: start;
+		gap: 0;
+	}
 	.navbar-item-container {
 		display: none;
+		/* todo: is showing one long line of items really a good idea? look into better solutions */
 		flex-flow: column nowrap;
-		gap: 0.25rem;
-		font-size: 14px;
+		gap: var(--navbar-item-spacing);
+		width: 100%;
+		border-top: solid 1px var(--color-divider);
+		padding-top: 1rem;
+		margin-top: 1rem;
 	}
-	.mobile-header,
+	/* show navbar items when the .show class is added (only part JS is required for) */
+	.navbar-toggler,
 	.navbar-item-container.show {
 		display: flex;
 	}
+	.navbar-header-container {
+		width: 100%;
+	}
+	/* switch dropdown children to regular inline elements with an indent */
 	.hover-link .children {
 		position: static;
 		visibility: visible;
 		padding: 0;
 		box-shadow: none;
 		margin-left: 1rem;
+		gap: var(--navbar-item-spacing);
+		/* since these are nested with the parent we need to add margin separately from gap */
+		margin-top: var(--navbar-item-spacing);
 	}
 }

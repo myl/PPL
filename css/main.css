@@ -1,0 +1,106 @@
+@import "./variables.css";
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap");
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box !important;
+}
+
+:root {
+	font-family: "EB Garamond", serif;
+}
+
+/* remove lip around edges */
+body {
+	margin: 0;
+	padding: 0;
+}
+
+h1,
+h2,
+h3 {
+	font-weight: normal;
+	color: var(--color-blue);
+	margin: 1rem 0;
+}
+
+p {
+	/* garamond is an optically smallish font, 18px is closer to 16px in helvetica or similar */
+	font-size: 18px;
+	line-height: 1.5;
+	color: var(--color-text);
+}
+
+hr {
+	border-color: var(--color-divider);
+}
+
+a {
+	color: var(--color-blue);
+	text-decoration: none;
+	transition: all 0.25s ease;
+}
+
+a:hover,
+a:focus {
+	color: var(--color-red);
+}
+
+button {
+	/* user agent stylesheets love untheming buttons for no reason in particular */
+	font-family: "EB Garamond", serif;
+	border: none;
+	border-radius: var(--border-radius);
+	background-color: #ccc;
+	cursor: pointer;
+	transition: all 0.25s ease;
+
+	/* centered content by default + decent gap for icons if needed */
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+}
+button:hover {
+	background-color: #ddd;
+}
+button:active {
+	background-color: #eee;
+}
+
+/** CONTENT CONTAINER STYLES */
+.container {
+	width: 100%;
+	flex-grow: 1;
+	padding: 1rem;
+	margin-right: auto;
+	margin-left: auto;
+
+	/* has to be hardcoded because you can't put variables in media queries */
+	max-width: 1140px;
+}
+
+/* basic breakpoint setup */
+@media screen and (max-width: 1140px) {
+	.container {
+		max-width: 960px;
+	}
+}
+
+@media screen and (max-width: 960px) {
+	.container {
+		max-width: calc(760px - 1rem);
+	}
+}
+
+@media screen and (max-width: 760px) {
+	.container {
+		max-width: calc(576px - 1rem);
+	}
+}
+
+.spacer {
+	flex-grow: 1;
+}
