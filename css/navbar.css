@@ -3,7 +3,12 @@
 :root {
 	/* match main container max width */
 	--navbar-max-width: 1140px;
-	--navbar-item-spacing: 0.2rem;
+	--navbar-padding: 1rem;
+	--navbar-horizontal-item-spacing: 1.5rem;
+	--navbar-vertical-item-spacing: 0.25rem;
+	--navbar-dropdown-padding: 0.75rem;
+	--navbar-dropdown-indent: 1rem;
+	--navbar-header-gap: 0.5rem;
 }
 
 /* just for the main sticky container */
@@ -24,9 +29,9 @@
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
-	padding: 1rem;
+	padding: var(--navbar-padding);
 	width: var(--navbar-max-width);
-	gap: 2rem;
+	gap: var(--navbar-header-gap);
 }
 
 /* site information */
@@ -34,10 +39,14 @@
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
-	gap: 0.5rem;
+	gap: var(--navbar-header-gap);
 }
 
 .navbar-header {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	gap: var(--navbar-header-gap);
 	font-size: 24px;
 	font-weight: 600;
 }
@@ -47,7 +56,7 @@
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: start;
-	gap: 2rem;
+	gap: var(--navbar-horizontal-item-spacing);
 }
 
 .navbar-link {
@@ -70,8 +79,8 @@
 	flex-flow: column nowrap;
 	position: fixed;
 	background-color: white;
-	padding: 0.75rem;
-	gap: var(--navbar-item-spacing);
+	padding: var(--navbar-dropdown-padding);
+	gap: var(--navbar-vertical-item-spacing);
 	border-radius: var(--border-radius);
 	box-shadow: var(--sheet-shadow);
 }
@@ -87,7 +96,7 @@
 	font-size: 1.25rem;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 790px) {
 	/* flip container to show header on top and hide items below */
 	.navbar-container {
 		flex-flow: column nowrap;
@@ -98,11 +107,11 @@
 		display: none;
 		/* todo: is showing one long line of items really a good idea? look into better solutions */
 		flex-flow: column nowrap;
-		gap: var(--navbar-item-spacing);
+		gap: var(--navbar-vertical-item-spacing);
 		width: 100%;
 		border-top: solid 1px var(--color-divider);
-		padding-top: 1rem;
-		margin-top: 1rem;
+		padding-top: var(--navbar-padding);
+		margin-top: var(--navbar-padding);
 	}
 	/* show navbar items when the .show class is added (only part JS is required for) */
 	.navbar-toggler,
@@ -118,9 +127,9 @@
 		visibility: visible;
 		padding: 0;
 		box-shadow: none;
-		margin-left: 1rem;
-		gap: var(--navbar-item-spacing);
+		margin-left: var(--navbar-dropdown-indent);
+		gap: var(--navbar-vertical-item-spacing);
 		/* since these are nested with the parent we need to add margin separately from gap */
-		margin-top: var(--navbar-item-spacing);
+		margin-top: var(--navbar-vertical-item-spacing);
 	}
 }

@@ -91,11 +91,11 @@ button:active {
 
 @media screen and (max-width: 960px) {
 	.container {
-		max-width: calc(760px - 1rem);
+		max-width: calc(790px - 1rem);
 	}
 }
 
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 790px) {
 	.container {
 		max-width: calc(576px - 1rem);
 	}
