@@ -13,7 +13,7 @@
 		<link rel="icon" href="/static/favicon.png" />
 
 		<link rel="stylesheet" href="/css/main.css" />
-		<link rel="stylesheet" href="/css/navbar.css" />
+		<script src="/js/loadNavigation.js" type="module"></script>
 		<style>
 			.hero-container {
 				display: flex;
@@ -48,45 +48,7 @@
 		</style>
 	</head>
 	<body>
-		<header class="navbar-sticky">
-			<nav class="navbar-container">
-				<div class="navbar-header-container">
-					<a href="/" class="navbar-header">
-						<img src="/static/favicon.png" width="24" height="24" loading="lazy" />
-						Penn Phonetics Laboratory
-					</a>
-					<div class="spacer"></div>
-					<button
-						class="navbar-toggler"
-						onclick="
-							document
-								.querySelector('.navbar-item-container')
-								.classList.toggle('show')
-						"
-					>
-						☰
-					</button>
-				</div>
-				<div class="spacer"></div>
-				<div class="navbar-item-container">
-					<a class="navbar-link" href="/">Home</a>
-					<!-- setup required for pure css dropdowns, feel free to copy this around -->
-					<span class="hover-link">
-						<a class="navbar-link" href="/people">People</a>
-						<div class="children">
-							<a href="/x" class="navbar-link">Child 1</a>
-							<a href="/y" class="navbar-link">Child 2</a>
-							<a href="/z" class="navbar-link">Child 3</a>
-						</div>
-					</span>
-					<a class="navbar-link" href="/alumni">Alumni</a>
-					<a class="navbar-link" href="/research">Research</a>
-					<a class="navbar-link" href="/facilities">Facilities</a>
-					<a class="navbar-link" href="/policy">Policy</a>
-					<a class="navbar-link" href="/news">News</a>
-				</div>
-			</nav>
-		</header>
+		<template data-type="navbar"></template>
 		<main class="container">
 			<div class="hero-container">
 				<img src="/static/hero.png" alt="Hero image" class="hero-image" />
@@ -108,5 +70,6 @@
 				large speech corpora, and integration of phonetics and speech technology.
 			</p>
 		</main>
+		<template data-type="footer"></template>
 	</body>
 </html>
