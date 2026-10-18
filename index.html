@@ -13,7 +13,7 @@
 		<link rel="icon" href="/static/favicon.png" />
 
 		<link rel="stylesheet" href="/css/main.css" />
-		<script src="/js/loadNavigation.js" type="module"></script>
+		<script src="/js/loadTemplates.js" type="module"></script>
 		<style>
 			.hero-container {
 				display: flex;
@@ -48,7 +48,7 @@
 		</style>
 	</head>
 	<body>
-		<template data-type="navbar"></template>
+		<template data-include="navbar" data-css="navbar"></template>
 		<main class="container">
 			<div class="hero-container">
 				<img src="/static/hero.png" alt="Hero image" class="hero-image" />
@@ -70,6 +70,6 @@
 				large speech corpora, and integration of phonetics and speech technology.
 			</p>
 		</main>
-		<template data-type="footer"></template>
+		<template data-include="footer" data-css="footer"></template>
 	</body>
 </html>
