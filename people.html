@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>People | Penn Phonetics & Phonology Lab</title>
+		<meta
+			name="description"
+			content="The phonetics group at Penn emphasizes the interdisciplinary and experimental nature of phonetics in both teaching and research. The group is engaged in a wide range of research topics, including laboratory studies of speech production and perception, prosody modelling, phonetic patterns and variation in large speech corpora, integration of phonetics and speech technology, etc."
+		/>
+		<meta name="theme-color" content="#011F5B" />
+		<link rel="icon" href="/static/favicon.png" />
+
+		<link rel="stylesheet" href="/css/main.css" />
+		<script src="/js/loadTemplates.js" type="module"></script>
+		<script src="/js/people.js" type="module"></script>
+		<style>
+			.person {
+				display: flex;
+				flex-flow: row nowrap;
+				align-items: start;
+				width: 100%;
+				gap: 1rem;
+				padding: 2rem 0;
+				/* nicer padding than <hr> */
+				border-bottom: 1px solid var(--color-divider);
+			}
+			.person-details {
+				flex-grow: 1;
+				width: 100%;
+			}
+			.person-name {
+				margin: 0;
+			}
+			.person-image {
+				max-width: 256px;
+				width: 100%;
+				border-radius: var(--border-radius);
+			}
+			@media screen and (max-width: 790px) {
+				.person {
+					flex-flow: column nowrap;
+					align-items: center;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<template data-include="navbar" data-css="navbar"></template>
+		<main class="container">
+			<h1 style="margin-bottom: 3rem">People</h1>
+			<div id="people-container">
+				<div v-for="type in types" :key="type" class="people-group">
+					<h2>{{ type }}</h2>
+					<div v-for="person in groupedByType[type]" :key="person.name" class="person">
+						<div class="person-details">
+							<h3 class="person-name">{{ person.name }}</h3>
+							<a :href="person.href" target="_blank" rel="noopener noreferrer">
+								{{ person.href }}
+							</a>
+
+							<p>
+								<template v-if="person.bio">{{ person.bio }}</template>
+								<i v-else>No bio provided</i>
+							</p>
+						</div>
+						<img
+							v-if="person.image"
+							:src="`/static/people/${person.image}`"
+							:alt="person.name"
+							class="person-image"
+						/>
+					</div>
+				</div>
+			</div>
+		</main>
+		<template data-include="footer" data-css="footer"></template>
+	</body>
+</html>
